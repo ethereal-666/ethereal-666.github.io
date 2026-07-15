@@ -1461,7 +1461,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #e84e8e;
+    background: #fc7a85;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3169,6 +3169,7 @@ a {
   border: 4px solid rgba(255,255,255,0.76);
   box-shadow: 0 12px 30px rgba(35,45,74,0.18);
   height: 96px;
+  object-fit: cover;
   width: 96px;
 }
 .site-author-name {
@@ -3483,6 +3484,18 @@ figure.highlight table {
 }
 .footer a {
   color: #fff;
+}
+.powered-by {
+  display: none;
+}
+.powered-by-custom {
+  color: rgba(255,255,255,0.86);
+  font-weight: 600;
+  margin-top: 8px;
+}
+.powered-by-custom a {
+  color: #fff;
+  font-weight: 800;
 }
 .back-to-top {
   background: var(--ethereal-panel-solid);

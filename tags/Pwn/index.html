@@ -136,7 +136,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="ethereal"
-      src="/images/avatar.gif">
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">ethereal</p>
   <div class="site-description" itemprop="description">一个用于记录技术学习和生活的个人博客</div>
 </div>
@@ -257,7 +257,11 @@
     </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+  </div><div class="powered-by-custom">
+  Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp;
+  <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+</div>
+
 
     </div>
   </footer>
@@ -281,6 +285,22 @@
 </noscript>
 <script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"ethereal-666/ethereal-666.github.io","issue_term":"pathname","theme":"preferred-color-scheme"}</script>
 <script src="/js/third-party/comments/utterances.js" defer></script>
+<script>
+  (() => {
+    const host = window.location.hostname;
+    const isLocalPreview = !host || host === 'localhost' || host === '127.0.0.1' || host === '::1';
+    if (!isLocalPreview) return;
+
+    const hideLocalBusuanzi = () => {
+      document.querySelectorAll('.busuanzi-count, #busuanzi_container_page_pv').forEach(item => {
+        item.style.display = 'none';
+      });
+    };
+
+    hideLocalBusuanzi();
+    document.addEventListener('DOMContentLoaded', hideLocalBusuanzi);
+  })();
+</script>
 
 </body>
 </html>
