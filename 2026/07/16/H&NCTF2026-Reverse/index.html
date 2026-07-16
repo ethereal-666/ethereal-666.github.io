@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141823" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#f7f3ea">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ethereal-666.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="H&amp;NCTF2026 Reverse 方向题目复盘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H&amp;NCTF2026-Reverse">
+<meta property="og:url" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/index.html">
+<meta property="og:site_name" content="Ethereal&#39;s Blog">
+<meta property="og:description" content="H&amp;NCTF2026 Reverse 方向题目复盘">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716110721898.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716110831788.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716111504769.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716111625799.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716111711482.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112048582.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112413768.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112426122.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112440704.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112544381.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112705767.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716112946156.png">
+<meta property="article:published_time" content="2026-07-16T03:05:13.000Z">
+<meta property="article:modified_time" content="2026-07-16T03:39:10.255Z">
+<meta property="article:author" content="ethereal">
+<meta property="article:tag" content="H&amp;NCTF2026">
+<meta property="article:tag" content="Reverse">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/image-20260716110721898.png">
+
+
+<link rel="canonical" href="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/","path":"2026/07/16/H&NCTF2026-Reverse/","title":"H&NCTF2026-Reverse"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>H&NCTF2026-Reverse | Ethereal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ethereal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录学习与生活</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexgate"><span class="nav-number">1.</span> <span class="nav-text">Hexgate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">恢复流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简单分析整体流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">加密逻辑分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#key%E7%94%9F%E6%88%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">key生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E8%BD%AE%E5%8A%A0%E5%AF%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">三轮加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%A0%A1%E9%AA%8C"><span class="nav-number">1.3.3.</span> <span class="nav-text">最终校验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%8F%8A%E8%84%9A%E6%9C%AC"><span class="nav-number">1.4.</span> <span class="nav-text">解密及脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-be-continued%E2%80%A6"><span class="nav-number">2.</span> <span class="nav-text">To be continued…</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ethereal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">ethereal</p>
+  <div class="site-description" itemprop="description">一个用于记录技术学习和生活的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ethereal-666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ethereal-666" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ethereal-666.github.io/2026/07/16/H&NCTF2026-Reverse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="ethereal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ethereal's Blog">
+      <meta itemprop="description" content="一个用于记录技术学习和生活的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="H&amp;NCTF2026-Reverse | Ethereal's Blog">
+      <meta itemprop="description" content="H&amp;NCTF2026 Reverse 方向题目复盘">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          H&NCTF2026-Reverse
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-07-16 11:05:13 / 修改时间：11:39:10" itemprop="dateCreated datePublished" datetime="2026-07-16T11:05:13+08:00">2026-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">H&NCTF2026 Reverse 方向题目复盘</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Hexgate"><a href="#Hexgate" class="headerlink" title="Hexgate"></a>Hexgate</h2><p>首先将附件拖到ide检测发现是go语言写的😣</p>
+<span id="more"></span>
+
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716110721898.png" alt="image-20260716110721898"></p>
+<p>尝试运行发现是输入flag并且比对</p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716110831788.png" alt="image-20260716110831788"></p>
+<p>ida打开发现虽然能找到打印menu的函数但是函数名称都没了，分析起来很复杂</p>
+<p>GPT老师说：“但 Go 为了运行时栈回溯、崩溃信息、GC 和源码行号映射等功能，二进制中通常会保存一套运行时函数元数据，例如 <code>pclntab</code>。其中包含函数表和函数名表；Go 官方的 <code>debug/gosym</code> 也能从这些数据中获得函数列表、函数名称和 PC 对应的源码行号。”</p>
+<p>因此是可以进行恢复的，以下是跟着GPT老师恢复后总结的流程（Windows下）：</p>
+<h3 id="恢复流程"><a href="#恢复流程" class="headerlink" title="恢复流程"></a>恢复流程</h3><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p><a target="_blank" rel="noopener" href="https://github.com/mandiant/GoReSym">mandiant&#x2F;GoReSym: Go symbol recovery tool</a>下载GoReSym</p>
+<p>复制rev文件到GoReSym-windows目录（与GoReSym.exe同一目录下），并运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\GoReSym.exe -t -d -p .\hexgate.exe &gt; HexGate.json</span><br></pre></td></tr></table></figure>
+
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><p>这一步是因为Windows终端生成的是utf16的编码，ida无法读取</p>
+<p>用vscode打开json点击右下角编码save as utf8</p>
+<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p><a target="_blank" rel="noopener" href="https://github.com/mandiant/GoReSym/blob/master/IDAPython/goresym_rename.py%E4%B8%8B%E8%BD%BD%E8%BF%99%E4%B8%AApython%E6%96%87%E4%BB%B6">https://github.com/mandiant/GoReSym/blob/master/IDAPython/goresym_rename.py下载这个python文件</a></p>
+<p>在ida的file的script file选择goresym_rename.py然后选择第一步生成的json文件</p>
+<p>完成后在view的open subviews的functions重新打开即可恢复</p>
+<p>恢复后效果如图所示：</p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716111504769.png" alt="image-20260716111504769"></p>
+<p>可以看到main函数及后续调用正常显示</p>
+<h3 id="简单分析整体流程"><a href="#简单分析整体流程" class="headerlink" title="简单分析整体流程"></a>简单分析整体流程</h3><p>进入main.main后最重要的就是获取用户输入和验证逻辑</p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716111625799.png" alt="image-20260716111625799"></p>
+<p>进入校验函数</p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716111711482.png" alt="image-20260716111711482"></p>
+<p>可以看到刚开始校验了输入flag的长度和开头结尾的格式（开头因为小端是反的），然后又校验了输入字符的范围只能是0-9和a-f（这一点有些牵强，不过看不出来也完全不影响，而且字符串中直接搜索flag发现有一个fakeflag有类似形式）</p>
+<h3 id="加密逻辑分析"><a href="#加密逻辑分析" class="headerlink" title="加密逻辑分析"></a>加密逻辑分析</h3><h4 id="key生成"><a href="#key生成" class="headerlink" title="key生成"></a>key生成</h4><p>首先可以看到生成了两个key，</p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112048582.png" alt="image-20260716112048582"></p>
+<p>直接分析两个函数有些复杂，但是由于key和输入无关，我们进行动态调试（ida调试+LazyIDA插件）可以拿到两个key（ida的调试可以上网搜索一下）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keyA=[<span class="number">0x6C</span>, <span class="number">0xC6</span>, <span class="number">0x76</span>, <span class="number">0x4D</span>, <span class="number">0xD7</span>, <span class="number">0x4E</span>, <span class="number">0xA6</span>, <span class="number">0x7B</span>, <span class="number">0x67</span>, <span class="number">0x06</span>, <span class="number">0x39</span>, <span class="number">0xFD</span>, <span class="number">0x95</span>, <span class="number">0xCA</span>, <span class="number">0x0F</span>, <span class="number">0x0B</span>, <span class="number">0xBB</span>, <span class="number">0xEF</span>, <span class="number">0xDD</span>, <span class="number">0x10</span>, <span class="number">0x8A</span>, <span class="number">0x1B</span>, <span class="number">0x5F</span>, <span class="number">0x0A</span>, <span class="number">0x63</span>, <span class="number">0x51</span>, <span class="number">0x25</span>, <span class="number">0xD1</span>, <span class="number">0xBE</span>, <span class="number">0xC7</span>, <span class="number">0xA0</span>, <span class="number">0x27</span>]</span><br><span class="line">keyB=[<span class="number">0x23</span>, <span class="number">0xA3</span>, <span class="number">0xB9</span>, <span class="number">0x2E</span>, <span class="number">0xA0</span>, <span class="number">0xF2</span>, <span class="number">0x64</span>, <span class="number">0xB2</span>, <span class="number">0xCC</span>, <span class="number">0xB8</span>, <span class="number">0x2A</span>, <span class="number">0x6C</span>, <span class="number">0xFF</span>, <span class="number">0xFE</span>, <span class="number">0xFA</span>, <span class="number">0x0F</span>, <span class="number">0xD9</span>, <span class="number">0x1C</span>, <span class="number">0x36</span>, <span class="number">0xB3</span>, <span class="number">0x4C</span>, <span class="number">0x26</span>, <span class="number">0x52</span>, <span class="number">0x60</span>, <span class="number">0xBB</span>, <span class="number">0x60</span>, <span class="number">0x36</span>, <span class="number">0x91</span>, <span class="number">0xC3</span>, <span class="number">0xB7</span>, <span class="number">0x07</span>, <span class="number">0xF7</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="三轮加密"><a href="#三轮加密" class="headerlink" title="三轮加密"></a>三轮加密</h4><p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112413768.png" alt="image-20260716112413768"></p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112426122.png" alt="image-20260716112426122"></p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112440704.png" alt="image-20260716112440704"></p>
+<p>加密流程不再详细分析，是一些box的替换、xor和rol（循环移位）</p>
+<h4 id="最终校验"><a href="#最终校验" class="headerlink" title="最终校验"></a>最终校验</h4><p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112544381.png" alt="image-20260716112544381"></p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112705767.png" alt="image-20260716112705767"></p>
+<p>前一步看起来复杂，但是GPT老师说其实只是把dword转换成byte，感觉复杂其实也可以通过下面动态调试直接获取比对的部分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const2=[0x1B, 0xA5, 0xD9, 0xAA, 0xC6, 0x51, 0x5D, 0x0D, 0xA4, 0x01, 0x24, 0xA4, 0xAF, 0xF5, 0x7E, 0xD3, 0x49, 0x16, 0x79, 0xDF, 0x89, 0x0C, 0xDF, 0x23, 0xB7, 0x26, 0x11, 0x01, 0x1D, 0xEF, 0x7A, 0x2B]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解密及脚本"><a href="#解密及脚本" class="headerlink" title="解密及脚本"></a>解密及脚本</h3><p>所以最终解密就是从最后比对这部分数据倒着推回flag，也就是逆过来整个加密，最终脚本由GPT完成，但是逻辑比较清晰：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">keyA=[0x6C, 0xC6, 0x76, 0x4D, 0xD7, 0x4E, 0xA6, 0x7B, 0x67, 0x06, 0x39, 0xFD, 0x95, 0xCA, 0x0F, 0x0B, 0xBB, 0xEF, 0xDD, 0x10, 0x8A, 0x1B, 0x5F, 0x0A, 0x63, 0x51, 0x25, 0xD1, 0xBE, 0xC7, 0xA0, 0x27]</span><br><span class="line">keyB=[0x23, 0xA3, 0xB9, 0x2E, 0xA0, 0xF2, 0x64, 0xB2, 0xCC, 0xB8, 0x2A, 0x6C, 0xFF, 0xFE, 0xFA, 0x0F, 0xD9, 0x1C, 0x36, 0xB3, 0x4C, 0x26, 0x52, 0x60, 0xBB, 0x60, 0x36, 0x91, 0xC3, 0xB7, 0x07, 0xF7]</span><br><span class="line">fakeFlag=&#x27;H&amp;NCTF&#123;0123456789abcdeffedcba9876543210&#125;&#x27;</span><br><span class="line">const1=[0x09, 0x04, 0x15, 0x00, 0x11, 0x1E, 0x0C, 0x19, 0x07, 0x13, 0x02, 0x1C, 0x0E, 0x17, 0x05, 0x1F, 0x01, 0x10, 0x0A, 0x1B, 0x03, 0x12, 0x08, 0x18, 0x0D, 0x1D, 0x06, 0x14, 0x0B, 0x1A, 0x0F, 0x16]</span><br><span class="line">const2=[0x1B, 0xA5, 0xD9, 0xAA, 0xC6, 0x51, 0x5D, 0x0D, 0xA4, 0x01, 0x24, 0xA4, 0xAF, 0xF5, 0x7E, 0xD3, 0x49, 0x16, 0x79, 0xDF, 0x89, 0x0C, 0xDF, 0x23, 0xB7, 0x26, 0x11, 0x01, 0x1D, 0xEF, 0x7A, 0x2B]</span><br><span class="line">target=const2</span><br><span class="line">from struct import pack</span><br><span class="line"></span><br><span class="line"># ==========================</span><br><span class="line"># 8bit循环移位</span><br><span class="line"># ==========================</span><br><span class="line"></span><br><span class="line">def rol8(x, n):</span><br><span class="line">    n %= 8</span><br><span class="line">    return ((x &lt;&lt; n) | (x &gt;&gt; (n))) &amp; 0xff</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ror8(x, n):</span><br><span class="line">    n %= 8</span><br><span class="line">    return ((x &gt;&gt; n) | (x &lt;&lt; (8-n))) &amp; 0xff</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># ==========================</span><br><span class="line"># 逆第三轮</span><br><span class="line">#</span><br><span class="line"># flag3[i] =</span><br><span class="line">#     rol(flag2[i],4)</span><br><span class="line">#     ^ keyB[i]</span><br><span class="line">#     ^ (17*i+92)</span><br><span class="line">#</span><br><span class="line"># ==========================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag2 = [0]*32</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in range(32):</span><br><span class="line"></span><br><span class="line">    tmp = target[i] \</span><br><span class="line">          ^ keyB[i] \</span><br><span class="line">          ^ ((17*i+92)&amp;0xff)</span><br><span class="line"></span><br><span class="line">    flag2[i] = ror8(tmp,4)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># ==========================</span><br><span class="line"># 逆第二轮</span><br><span class="line">#</span><br><span class="line"># 原:</span><br><span class="line">#</span><br><span class="line"># flag2[k]=flag1[const1[k]]</span><br><span class="line">#</span><br><span class="line"># ==========================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag1 = [0]*32</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for k in range(32):</span><br><span class="line"></span><br><span class="line">    flag1[const1[k]] = flag2[k]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># ==========================</span><br><span class="line"># 逆第一轮</span><br><span class="line">#</span><br><span class="line"># 原:</span><br><span class="line">#</span><br><span class="line"># flag1[i]=rol(input[i]^keyA[i], i%5+1)</span><br><span class="line">#</span><br><span class="line"># ==========================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">content = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in range(32):</span><br><span class="line"></span><br><span class="line">    c = ror8(</span><br><span class="line">        flag1[i],</span><br><span class="line">        i%5+1</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    c ^= keyA[i]</span><br><span class="line"></span><br><span class="line">    content.append(c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;[+] hex:&quot;)</span><br><span class="line">print(bytes(content).hex())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;[+] flag content:&quot;)</span><br><span class="line">print(bytes(content).decode())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;\n[+] full flag:&quot;)</span><br><span class="line">print(&quot;H&amp;NCTF&#123;&quot; + bytes(content).decode() + &quot;&#125;&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最终flag：</p>
+<p><img src="/2026/07/16/H&NCTF2026-Reverse/image-20260716112946156.png" alt="image-20260716112946156"></p>
+<h2 id="To-be-continued…"><a href="#To-be-continued…" class="headerlink" title="To be continued…"></a>To be continued…</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/H-NCTF2026/" rel="tag"><i class="fa fa-tag"></i> H&NCTF2026</a>
+              <a href="/tags/Reverse/" rel="tag"><i class="fa fa-tag"></i> Reverse</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/07/15/H&NCTF2026-Pwn/" rel="prev" title="H&amp;NCTF2026-Pwn">
+                  <i class="fa fa-angle-left"></i> H&NCTF2026-Pwn
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ethereal</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><div class="powered-by-custom">
+  Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp;
+  <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"ethereal-666/ethereal-666.github.io","issue_term":"pathname","theme":"preferred-color-scheme"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+<script>
+  (() => {
+    const host = window.location.hostname;
+    const isLocalPreview = !host || host === 'localhost' || host === '127.0.0.1' || host === '::1';
+    if (!isLocalPreview) return;
+
+    const hideLocalBusuanzi = () => {
+      document.querySelectorAll('.busuanzi-count, #busuanzi_container_page_pv').forEach(item => {
+        item.style.display = 'none';
+      });
+    };
+
+    hideLocalBusuanzi();
+    document.addEventListener('DOMContentLoaded', hideLocalBusuanzi);
+  })();
+</script>
+
+</body>
+</html>
