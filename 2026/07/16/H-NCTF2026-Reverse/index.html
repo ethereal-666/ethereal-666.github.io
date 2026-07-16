@@ -41,8 +41,19 @@
 <meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716112544381.png">
 <meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716112705767.png">
 <meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716112946156.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716191337205.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716191132053.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716191645401.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716193717099.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716193743993.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716191902998.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716192131897.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716192408420.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716192657886.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716193132051.png">
+<meta property="og:image" content="https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/image-20260716194328297.png">
 <meta property="article:published_time" content="2026-07-16T03:05:13.000Z">
-<meta property="article:modified_time" content="2026-07-16T04:13:54.362Z">
+<meta property="article:modified_time" content="2026-07-16T11:44:03.957Z">
 <meta property="article:author" content="ethereal">
 <meta property="article:tag" content="H&amp;NCTF2026">
 <meta property="article:tag" content="Reverse">
@@ -148,7 +159,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexgate"><span class="nav-number">1.</span> <span class="nav-text">Hexgate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">恢复流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简单分析整体流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">加密逻辑分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#key%E7%94%9F%E6%88%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">key生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E8%BD%AE%E5%8A%A0%E5%AF%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">三轮加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%A0%A1%E9%AA%8C"><span class="nav-number">1.3.3.</span> <span class="nav-text">最终校验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%8F%8A%E8%84%9A%E6%9C%AC"><span class="nav-number">1.4.</span> <span class="nav-text">解密及脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-be-continued%E2%80%A6"><span class="nav-number">2.</span> <span class="nav-text">To be continued…</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexgate"><span class="nav-number">1.</span> <span class="nav-text">Hexgate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">恢复流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简单分析整体流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">加密逻辑分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#key%E7%94%9F%E6%88%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">key生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E8%BD%AE%E5%8A%A0%E5%AF%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">三轮加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%A0%A1%E9%AA%8C"><span class="nav-number">1.3.3.</span> <span class="nav-text">最终校验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%8F%8A%E8%84%9A%E6%9C%AC"><span class="nav-number">1.4.</span> <span class="nav-text">解密及脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PatrolNote"><span class="nav-number">2.</span> <span class="nav-text">PatrolNote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-be-continued%E2%80%A6"><span class="nav-number">3.</span> <span class="nav-text">To be continued…</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -239,7 +250,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-07-16 11:05:13 / 修改时间：12:13:54" itemprop="dateCreated datePublished" datetime="2026-07-16T11:05:13+08:00">2026-07-16</time>
+      <time title="创建时间：2026-07-16 11:05:13 / 修改时间：19:44:03" itemprop="dateCreated datePublished" datetime="2026-07-16T11:05:13+08:00">2026-07-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,6 +332,31 @@
 
 <p>最终flag：</p>
 <p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716112946156.png" alt="image-20260716112946156"></p>
+<h2 id="PatrolNote"><a href="#PatrolNote" class="headerlink" title="PatrolNote"></a>PatrolNote</h2><p>首先是一个apk包，先运行一下看看是什么东西，这里我用了Android Studio的Device Manager作为模拟器，打开看到</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716191337205.png" alt="image-20260716191337205"></p>
+<p>可以看到是一个授权的验证，规定了工号和授权码</p>
+<p>接下来我们用jadx来进行反编译（注意这里建议用高版本的jadx，低版本可能无法处理混淆而反编译失败）</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716191132053.png" alt="image-20260716191132053"></p>
+<p>可以直接点击这个小房子定位到MainActivity</p>
+<p>可以看到获取usernameInput、licenseInput作为string1和string2</p>
+<p>然后将username转成string存入string3，将string3变成大写放到upperCase，接下来调用了一个matcher相关的，问了ai是正则匹配的</p>
+<p>打开这个b的类可以看到有两个正则匹配的表达式，应该是规定了username和license的格式，可以看到第一个只匹配最后四位，第二个则是都匹配</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716191645401.png" alt="image-20260716191645401"></p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716193717099.png" alt="image-20260716193717099"></p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716193743993.png" alt="image-20260716193743993"></p>
+<p>后面就是将两个输入分别处理并提取，其中username只要最后四位数字，license匹配后删除“-”之后进行了换表重排，</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716191902998.png" alt="image-20260716191902998"></p>
+<p>然后就将这两部分传入这个verify函数，这个明显是校验逻辑所在，这个NativeBridge GPT老师说是调用C、C++代码的部分，因此下面用ida打开lib文件夹下的.so文件进行分析，GPT老师说应该找Android JNI 函数，因此搜索java命名的函数即可找到函数调用</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716192131897.png" alt="image-20260716192131897"></p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716192408420.png" alt="image-20260716192408420"></p>
+<p>首先这两个函数GPT说可以理解为从java的string转换到C++的string</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716192657886.png" alt="image-20260716192657886"></p>
+<p>第一个if块很奇怪，GPT：C++ std::string 有短字符串优化（SSO），不用管，恢复成：if(str1.length()!&#x3D;4) return wrong;</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716193132051.png" alt="image-20260716193132051"></p>
+<p>下面就是硬编码对比，可以看到ptr12&#x3D;‘‘7413’’，也就是username&#x3D;EMP-2026-7413</p>
+<p>在下面的license比对就是“9M5QD2A7KLTX”，根据java层置换回来就是“Q7M2L9XAT5KD”,即“Q7M2-L9XA-T5KD”</p>
+<p>输入get flag</p>
+<p><img src="/2026/07/16/H-NCTF2026-Reverse/image-20260716194328297.png" alt="image-20260716194328297"></p>
 <h2 id="To-be-continued…"><a href="#To-be-continued…" class="headerlink" title="To be continued…"></a>To be continued…</h2>
     </div>
 
