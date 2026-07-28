@@ -37,8 +37,9 @@ blog/
 │  ├─ _posts/                  # Markdown 文章及文章图片
 │  ├─ about/                   # 关于页面
 │  ├─ categories/              # 分类入口页面
+│  ├─ friends/                 # 友链页面
 │  ├─ tags/                    # 标签入口页面
-│  └─ images/                  # 头像等公共图片
+│  └─ images/                  # 头像、友链图标等公共图片
 ├─ themes/ethereal/
 │  ├─ _config.yml              # 联系方式、导航、评论和主题功能配置
 │  ├─ layout/                  # EJS 页面模板
@@ -55,6 +56,7 @@ blog/
 | --- | --- |
 | 首页标题、首页各区域文字 | `themes/ethereal/layout/index.ejs` |
 | 首页联系方式、导航、评论仓库 | `themes/ethereal/_config.yml` |
+| 友链名称、简介、网址和头像 | `themes/ethereal/_config.yml` 的 `friends` 列表 |
 | 顶部导航结构 | `themes/ethereal/layout/_partial/header.ejs` |
 | 页脚文字 | `themes/ethereal/layout/_partial/footer.ejs` |
 | 文章页面与右侧目录 | `themes/ethereal/layout/post.ejs` |

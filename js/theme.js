@@ -110,6 +110,14 @@
     revealElements.forEach(element => revealObserver.observe(element));
   }
 
+  document.querySelectorAll('.friend-avatar img').forEach(image => {
+    const showFallback = () => {
+      image.closest('.friend-avatar')?.classList.add('is-fallback');
+    };
+    if (image.complete && !image.naturalWidth) showFallback();
+    image.addEventListener('error', showFallback, { once: true });
+  });
+
   const articleHeadings = [...document.querySelectorAll('.article-content h2[id], .article-content h3[id], .article-content h4[id]')];
   articleHeadings.forEach(heading => {
     const anchor = document.createElement('a');
