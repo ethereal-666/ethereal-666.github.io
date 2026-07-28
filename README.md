@@ -4,22 +4,25 @@
 [![Hexo](https://img.shields.io/badge/Hexo-8.1.2-0e83cd?style=flat-square&logo=hexo&logoColor=white)](https://hexo.io/)
 [![Theme](https://img.shields.io/badge/Theme-NexT.Gemini-333333?style=flat-square)](https://theme-next.js.org/)
 
-我的个人博客源码，用来整理学习过程中的技术笔记、CTF 题解、项目实践、环境配置和日常随笔。
+我的个人博客源码，用来持续整理技术学习、实践过程和阶段性思考。这里既记录具体问题的解决过程，也沉淀可以复用的方法、工具和经验。
 
 博客地址：[https://ethereal-666.github.io/](https://ethereal-666.github.io/)
 
-## 内容方向
+## 学习与实践
 
-- CTF 比赛题解与复盘
-- Pwn、Reverse 等安全技术学习记录
-- 项目实践与环境配置
-- 学习总结和日常随笔
+- 编程基础、系统原理与安全技术学习
+- 工具使用、环境配置和问题排查记录
+- 项目实践、实验过程与技术复盘
+- CTF 等实践场景中的分析思路与解题经验
+- 学习总结、阶段思考和日常随笔
 
 ## 近期文章
 
-- [H&NCTF2026 Reverse Writeup：Hexgate、PatrolNote、ezvm 等题解](https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/)
-- [H&NCTF2026 Pwn Writeup：ezstack、expz1、ezpz2 等题解](https://ethereal-666.github.io/2026/07/15/H-NCTF2026-Pwn/)
+<!-- recent-posts:start -->
+- [H&NCTF2026 Reverse Writeup](https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/)
+- [H&NCTF2026 Pwn Writeup](https://ethereal-666.github.io/2026/07/15/H-NCTF2026-Pwn/)
 - [写在博客开始之前](https://ethereal-666.github.io/2026/07/15/about-this-blog/)
+<!-- recent-posts:end -->
 
 ## 技术栈
 
@@ -90,4 +93,4 @@ hexo deploy
 `-- package.json         # 项目依赖与常用命令
 ```
 
-站点地图会在生成网站时自动更新，无需手动编辑。发布重要新文章后，可以在 Google Search Console 和 Bing Webmaster Tools 中提交文章地址，以便搜索引擎更快发现内容。
+站点地图和上方的近期文章列表都会在生成网站时自动更新，无需手动编辑。发布重要新文章后，可以在 Google Search Console 和 Bing Webmaster Tools 中提交文章地址，以便搜索引擎更快发现内容。
