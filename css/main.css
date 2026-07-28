@@ -1236,16 +1236,30 @@ body.is-local .page-views {
 }
 
 .toc-child {
+  max-height: 0;
   padding-left: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 280ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease;
 }
 
 .toc-item {
+  position: relative;
   margin: 0;
+}
+
+.toc > .toc-item + .toc-item {
+  margin-top: 3px;
+}
+
+.toc-item.is-expanded > .toc-child {
+  max-height: 1200px;
+  opacity: 1;
 }
 
 .toc-link {
   display: block;
-  padding: 5px 8px;
+  padding: 6px 8px;
   border-radius: 6px;
   color: var(--muted);
   font-size: 12px;
@@ -1253,10 +1267,83 @@ body.is-local .page-views {
   transition: background-color 160ms ease, color 160ms ease;
 }
 
+.toc-level-2 > .toc-link {
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.toc-level-3 > .toc-link {
+  margin-left: 2px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+}
+
+.toc-level-4 > .toc-link {
+  margin-left: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+  border-radius: 0 6px 6px 0;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.toc-item.has-children > .toc-link {
+  padding-right: 30px;
+}
+
+.toc-toggle {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  right: 2px;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--faint);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.toc-toggle:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.toc-toggle span {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 180ms ease;
+}
+
+.toc-item.is-expanded > .toc-toggle span {
+  transform: rotate(90deg);
+}
+
 .toc-link:hover,
 .toc-link.is-active {
   background: var(--accent-soft);
   color: var(--accent-strong);
+}
+
+.toc-level-2 > .toc-link.is-active {
+  box-shadow: inset 3px 0 var(--accent);
+}
+
+.toc-level-3 > .toc-link.is-active,
+.toc-level-4 > .toc-link.is-active {
+  border-left-color: var(--accent);
 }
 
 .toc-progress {

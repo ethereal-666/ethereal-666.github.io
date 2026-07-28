@@ -121,15 +121,75 @@
   });
 
   const tocLinks = [...document.querySelectorAll('.toc-link')];
-  if (articleHeadings.length && tocLinks.length && 'IntersectionObserver' in window) {
+  const tocItems = [...document.querySelectorAll('.toc-item')];
+
+  tocItems.forEach(item => {
+    const child = [...item.children].find(element => element.classList?.contains('toc-child'));
+    if (!child) return;
+
+    item.classList.add('has-children');
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'toc-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', '展开子目录');
+    toggle.innerHTML = '<span aria-hidden="true">›</span>';
+    item.insertBefore(toggle, child);
+
+    toggle.addEventListener('click', () => {
+      const expanded = !item.classList.contains('is-expanded');
+      item.classList.toggle('is-expanded', expanded);
+      toggle.setAttribute('aria-expanded', String(expanded));
+      toggle.setAttribute('aria-label', expanded ? '收起子目录' : '展开子目录');
+    });
+  });
+
+  const activateTocLink = link => {
+    if (!link) return;
+    tocLinks.forEach(item => item.classList.remove('is-active'));
+    link.classList.add('is-active');
+
+    const activeItem = link.closest('.toc-item');
+    const activeTopLevel = activeItem?.closest('.toc > .toc-item');
+    document.querySelectorAll('.toc > .toc-item.is-expanded').forEach(item => {
+      if (item === activeTopLevel) return;
+      [item, ...item.querySelectorAll('.toc-item.is-expanded')].forEach(branch => {
+        branch.classList.remove('is-expanded');
+        const toggle = branch.querySelector(':scope > .toc-toggle');
+        toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.setAttribute('aria-label', '展开子目录');
+      });
+    });
+
+    let parent = activeItem;
+    while (parent?.classList.contains('toc-item')) {
+      if (parent.classList.contains('has-children')) {
+        parent.classList.add('is-expanded');
+        const toggle = parent.querySelector(':scope > .toc-toggle');
+        toggle?.setAttribute('aria-expanded', 'true');
+        toggle?.setAttribute('aria-label', '收起子目录');
+      }
+      parent = parent.parentElement?.closest('.toc-item');
+    }
+  };
+
+  if (tocLinks.length) activateTocLink(tocLinks[0]);
+
+  if (articleHeadings.length && tocLinks.length) {
     const tocMap = new Map(tocLinks.map(link => [decodeURIComponent(link.hash.slice(1)), link]));
-    const headingObserver = new IntersectionObserver(entries => {
-      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-      if (!visible.length) return;
-      tocLinks.forEach(link => link.classList.remove('is-active'));
-      tocMap.get(visible[0].target.id)?.classList.add('is-active');
-    }, { rootMargin: '-110px 0px -65% 0px', threshold: [0, 1] });
-    articleHeadings.forEach(heading => headingObserver.observe(heading));
+    let tocFramePending = false;
+    const updateActiveToc = () => {
+      const currentHeading = [...articleHeadings].reverse().find(heading => heading.getBoundingClientRect().top <= 150) || articleHeadings[0];
+      activateTocLink(tocMap.get(currentHeading.id));
+      tocFramePending = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (tocFramePending) return;
+      tocFramePending = true;
+      window.requestAnimationFrame(updateActiveToc);
+    }, { passive: true });
+    updateActiveToc();
   }
 
   const codeBlocks = document.querySelectorAll('.article-content figure.highlight, .article-content pre');
