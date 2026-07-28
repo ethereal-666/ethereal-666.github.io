@@ -4,72 +4,58 @@
 [![Hexo](https://img.shields.io/badge/Hexo-8.1.2-0e83cd?style=flat-square&logo=hexo&logoColor=white)](https://hexo.io/)
 [![Theme](https://img.shields.io/badge/Theme-NexT.Gemini-333333?style=flat-square)](https://theme-next.js.org/)
 
-我的个人博客源码，用来持续整理技术学习、实践过程和阶段性思考。这里既记录具体问题的解决过程，也沉淀可以复用的方法、工具和经验。
+这是我的个人技术博客，也是一个持续更新的公开学习档案。
 
-博客地址：[https://ethereal-666.github.io/](https://ethereal-666.github.io/)
+我希望把零散的阅读、实验和项目经历整理成可以回顾、验证和复用的知识：不仅记录“做出了什么”，也尽量说明问题如何被发现、思路如何形成，以及结论为什么成立。随着学习逐步深入，这个仓库也会持续呈现我的技术兴趣、思考方式和成长轨迹。
 
-## 学习与实践
+访问博客：[https://ethereal-666.github.io/](https://ethereal-666.github.io/)
 
-- 编程基础、系统原理与安全技术学习
-- 工具使用、环境配置和问题排查记录
-- 项目实践、实验过程与技术复盘
-- CTF 等实践场景中的分析思路与解题经验
-- 学习总结、阶段思考和日常随笔
+## 关注方向
 
-## 近期文章
+- 计算机基础、程序设计与系统原理
+- 工具链、开发环境与工程效率
+- 项目实践、实验记录与问题排查
+- 技术资料阅读、概念梳理与方法总结
+- 阶段复盘，以及对新方向的探索
+
+博客也会保留少量安全实践和竞赛记录。它们是检验知识、训练分析能力的具体场景，而不是这个博客的全部。
+
+## 写作原则
+
+- 从真实问题出发，交代必要的背景和约束
+- 保留分析过程、失败尝试和关键判断
+- 尽量提供可复现的步骤，而不只给出最终结论
+- 对不确定的内容保持克制，并在理解变化后持续修订
+
+## 最新记录
 
 <!-- recent-posts:start -->
 - [H&NCTF2026 Reverse Writeup](https://ethereal-666.github.io/2026/07/16/H-NCTF2026-Reverse/)
 - [H&NCTF2026 Pwn Writeup](https://ethereal-666.github.io/2026/07/15/H-NCTF2026-Pwn/)
-- [写在博客开始之前](https://ethereal-666.github.io/2026/07/15/about-this-blog/)
+- [关于这份长期技术记录](https://ethereal-666.github.io/2026/07/15/about-this-blog/)
 <!-- recent-posts:end -->
 
-## 技术栈
+该列表由 Hexo 在生成网站时自动读取并更新，展示最近发布的 5 篇文章。
 
-- [Hexo](https://hexo.io/)：静态博客生成器
-- [NexT](https://theme-next.js.org/)：博客主题，使用 Gemini 布局
-- [GitHub Pages](https://pages.github.com/)：网站托管
-- [Utterances](https://utteranc.es/)：基于 GitHub Issues 的评论系统
-- Busuanzi：文章与站点访问量统计
+## 博客工程
 
-## 本地运行
+博客基于 [Hexo](https://hexo.io/) 与 [NexT](https://theme-next.js.org/) 构建，使用 GitHub Pages 托管，并加入了文章分类、站点地图、搜索引擎验证、访问统计和基于 GitHub Issues 的评论功能。
 
-安装依赖：
+主要内容位于 `source/_posts/`，站点配置位于 `_config.yml` 与 `_config.next.yml`，自定义样式和页面片段位于 `source/_data/`。
 
-```bash
-npm install
-```
-
-启动本地预览：
+本地预览：
 
 ```bash
 npm run server
 ```
 
-默认访问地址为 `http://localhost:4000/`。
-
-## 写作与发布
-
-新建文章：
+完成写作后，一键生成并部署：
 
 ```bash
-npx hexo new post "文章标题"
+npm run publish
 ```
 
-文章文件位于 `source/_posts/`。完成写作后，清理缓存并重新生成网站：
-
-```bash
-npm run clean
-npm run build
-```
-
-确认本地显示正常后部署：
-
-```bash
-npm run deploy
-```
-
-以上命令分别等价于常用的：
+也可以使用对应的 Hexo 命令：
 
 ```bash
 hexo clean
@@ -77,20 +63,4 @@ hexo generate
 hexo deploy
 ```
 
-其中 `hexo generate` 可以简写为 `hexo g`，`hexo deploy` 可以简写为 `hexo d`。
-
-## 项目结构
-
-```text
-.
-|-- source/
-|   |-- _posts/          # 博客文章
-|   |-- _data/           # 自定义页面、样式和页脚
-|   `-- images/          # 站点图片
-|-- scaffolds/           # Hexo 文章模板
-|-- _config.yml          # Hexo 站点配置
-|-- _config.next.yml     # NexT 主题配置
-`-- package.json         # 项目依赖与常用命令
-```
-
-站点地图和上方的近期文章列表都会在生成网站时自动更新，无需手动编辑。发布重要新文章后，可以在 Google Search Console 和 Bing Webmaster Tools 中提交文章地址，以便搜索引擎更快发现内容。
+生成网站时会同步更新 README 的最新文章列表与站点地图，无需手动维护。
