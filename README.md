@@ -11,8 +11,8 @@
 ## 联系方式
 
 - GitHub：[@ethereal-666](https://github.com/ethereal-666)
-- QQ 邮箱：[2366956317@qq.com](mailto:2366956317@qq.com)
-- 学校邮箱：[2024311311@stu.hit.edu.cn](mailto:2024311311@stu.hit.edu.cn)
+- QQ 邮箱：`2366956317@qq.com`
+- 学校邮箱：`2024311311@stu.hit.edu.cn`
 
 ## 最新记录
 

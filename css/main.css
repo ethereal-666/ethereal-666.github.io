@@ -429,7 +429,7 @@ html[data-theme='dark'] .theme-icon-dark {
   border-top: 1px solid var(--line);
 }
 
-.intro-contact a {
+.intro-contact .contact-row {
   display: grid;
   min-height: 38px;
   padding: 6px 8px;
@@ -440,7 +440,7 @@ html[data-theme='dark'] .theme-icon-dark {
   transition: background-color 160ms ease, color 160ms ease;
 }
 
-.intro-contact a:hover {
+.intro-contact a.contact-row:hover {
   background: var(--accent-soft);
   color: var(--accent-strong);
 }
@@ -451,7 +451,7 @@ html[data-theme='dark'] .theme-icon-dark {
   font-weight: 700;
 }
 
-.intro-contact a span {
+.intro-contact .contact-row span {
   min-width: 0;
   margin: 0;
   overflow-wrap: anywhere;
@@ -466,7 +466,7 @@ html[data-theme='dark'] .theme-icon-dark {
   transition: transform 160ms ease;
 }
 
-.intro-contact a:hover b {
+.intro-contact a.contact-row:hover b {
   transform: translate(2px, -2px);
 }
 
