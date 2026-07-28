@@ -123,6 +123,19 @@
   const tocLinks = [...document.querySelectorAll('.toc-link')];
   const tocItems = [...document.querySelectorAll('.toc-item')];
 
+  tocLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      const targetId = decodeURIComponent(link.hash.slice(1));
+      const targetHeading = document.getElementById(targetId);
+      if (!targetHeading) return;
+
+      event.preventDefault();
+      history.pushState(null, '', link.hash);
+      targetHeading.scrollIntoView({ block: 'start', behavior: 'auto' });
+      activateTocLink(link);
+    });
+  });
+
   tocItems.forEach(item => {
     const child = [...item.children].find(element => element.classList?.contains('toc-child'));
     if (!child) return;

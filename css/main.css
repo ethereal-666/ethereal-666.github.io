@@ -56,8 +56,7 @@ html[data-theme='dark'] {
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 104px;
+  scroll-behavior: auto;
 }
 
 body {
@@ -959,7 +958,7 @@ body.is-local .page-views {
 .article-content h5,
 .article-content h6 {
   position: relative;
-  scroll-margin-top: 104px;
+  scroll-margin-top: 96px;
   color: var(--text);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.45;
