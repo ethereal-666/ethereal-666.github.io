@@ -1,29 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+  
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#e7e9ed" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#151515" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#e7e9ed">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>分类：CTF | Ethereal&#39;s Blog</title>
+  <meta name="description" content="Ethereal 的个人技术博客，记录学习、实践与思考。">
+  <meta name="author" content="ethereal">
   <meta name="google-site-verification" content="5Q_q112kSi6haQ1jSGCqwgH0jaKOULEEsz6ynnPF7sU">
   <meta name="msvalidate.01" content="22E20FE3C132712661A6430A6991C5C0">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"ethereal-666.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":280,"width_dual_column":220,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
-
-    <meta name="description" content="Ethereal 的个人技术博客，记录学习、实践与思考。">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#efedf5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#19171e">
+  <link rel="canonical" href="https://ethereal-666.github.io/categories/CTF/index.html">
+  <link rel="icon" href="/images/avatar.png">
+  <meta name="description" content="Ethereal 的个人技术博客，记录学习、实践与思考。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ethereal&#39;s Blog">
+<meta property="og:title" content="分类：CTF | Ethereal&#39;s Blog">
 <meta property="og:url" content="https://ethereal-666.github.io/categories/CTF/index.html">
 <meta property="og:site_name" content="Ethereal&#39;s Blog">
 <meta property="og:description" content="Ethereal 的个人技术博客，记录学习、实践与思考。">
@@ -31,274 +23,139 @@
 <meta property="article:author" content="ethereal">
 <meta property="article:tag" content="Ethereal,Ethereal Blog,ethereal-666,技术博客,学习记录,技术笔记,项目实践,问题分析,Hexo">
 <meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://ethereal-666.github.io/categories/CTF/">
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/CTF/index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: CTF | Ethereal's Blog</title>
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ethereal-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (systemDark ? 'dark' : 'light');
+      document.documentElement.classList.add('js');
+    })();
+  </script>
   
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 
-
-
-
-
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
-
-  
-
-
-
-
-
-
-  
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Ethereal's Blog</p>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">学习记录与技术随笔</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-  </ul>
-</nav>
-
-
-
-
-</header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="ethereal"
-      src="/images/avatar.png">
-  <p class="site-author-name" itemprop="name">ethereal</p>
-  <div class="site-description" itemprop="description">Ethereal 的个人技术博客，记录学习、实践与思考。</div>
-</div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/ethereal-666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ethereal-666" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+  <body class="page-kind-page" data-busuanzi="true">
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+    
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/" aria-label="返回首页">
+      <span class="brand-monogram" aria-hidden="true">E</span>
+      <span class="brand-copy">
+        <strong>Ethereal&#39;s Blog</strong>
+        <small>ETHEREAL / NOTES</small>
       </span>
-  </div>
-  <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
+    </a>
 
-        </div>
-      </div>
+    <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-navigation" title="打开导航" aria-label="打开导航">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-navigation" class="site-navigation" aria-label="主导航">
+      
+        <a class="nav-link" href="/">首页</a>
+      
+        <a class="nav-link is-active" href="/categories/">分类</a>
+      
+        <a class="nav-link" href="/archives/">归档</a>
+      
+        <a class="nav-link" href="/about/">关于</a>
+      
+      <button class="theme-toggle icon-button" type="button" title="切换颜色模式" aria-label="切换颜色模式">
+        <span class="theme-icon theme-icon-light" aria-hidden="true">☼</span>
+        <span class="theme-icon theme-icon-dark" aria-hidden="true">☾</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+
+
+    <main id="main-content" class="site-main">
+      <div class="listing-page page-container narrow-container">
+  <header class="page-heading reveal">
+    <p class="eyebrow">CATEGORY</p>
+    <h1>CTF</h1>
+    <p>该分类下共有 1 篇记录。</p>
+  </header>
+  <div class="listing-grid">
+    
+      
+<article class="post-card reveal">
+  <a class="post-card-link" href="/2026/07/16/H-NCTF2026-Reverse/" aria-label="阅读 H&amp;NCTF2026 Reverse Writeup">
+    <div class="post-card-topline">
+      <time datetime="2026-07-16T03:05:13.000Z">2026.07.16</time>
+      <span class="post-arrow" aria-hidden="true">↗</span>
     </div>
+    <h3>H&amp;NCTF2026 Reverse Writeup</h3>
+    <p>本文整理 H&amp;NCTF2026 Reverse 方向 Writeup，包含 Hexgate、PatrolNote、ezvm、mov-add、shell、game 和 entropybox 的分析与解题过程。</p>
+    <div class="post-card-taxonomy">
+      
+        <span>CTF</span>
+      
+        <span>Reverse</span>
+      
+    </div>
+  </a>
+</article>
 
     
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner category posts-collapse">
-
-
-  
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">CTF
-          <small>分类</small>
-        </h1>
-      </div>
-
       
-    <div class="collection-year">
-      <span class="collection-header">2026</span>
+<article class="post-card reveal">
+  <a class="post-card-link" href="/2026/07/15/H-NCTF2026-Pwn/" aria-label="阅读 H&amp;NCTF2026 Pwn Writeup">
+    <div class="post-card-topline">
+      <time datetime="2026-07-15T07:20:00.000Z">2026.07.15</time>
+      <span class="post-arrow" aria-hidden="true">↗</span>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-07-16T11:05:13+08:00"
-              content="2026-07-16">
-          07-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/07/16/H-NCTF2026-Reverse/" itemprop="url">
-            <span itemprop="name">H&NCTF2026 Reverse Writeup</span>
-          </a>
-      </div>
-
+    <h3>H&amp;NCTF2026 Pwn Writeup</h3>
+    <p>本文整理 H&amp;NCTF2026 Pwn 方向 Writeup，包含 ezstack、expz1、ezpz2、notezpz、notezpz1-plus、notezpz2、applepie 和 fake_iot 的分析与利用过…</p>
+    <div class="post-card-taxonomy">
       
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-07-15T15:20:00+08:00"
-              content="2026-07-15">
-          07-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/07/15/H-NCTF2026-Pwn/" itemprop="url">
-            <span itemprop="name">H&NCTF2026 Pwn Writeup</span>
-          </a>
-      </div>
-
+        <span>CTF</span>
       
-    </header>
-  </article>
-
+        <span>Pwn</span>
+      
     </div>
+  </a>
+</article>
+
+    
   </div>
   
-  
-  
 
-</div>
-  </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2026</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">ethereal</span>
-  </div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div><div class="powered-by-custom">
-  Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp;
-  <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
 </div>
 
 
-    </div>
-  </footer>
+    </main>
 
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2026 ethereal</p>
+    <p class="footer-links">
+      <a href="https://github.com/ethereal-666" target="_blank" rel="noopener">GitHub</a>
+      <span aria-hidden="true">·</span>
+      <span>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span>
+    </p>
   </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
+</footer>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"ethereal-666/ethereal-666.github.io","issue_term":"pathname","theme":"preferred-color-scheme"}</script>
-<script src="/js/third-party/comments/utterances.js" defer></script>
-<script>
-  (() => {
-    const host = window.location.hostname;
-    const isLocalPreview = !host || host === 'localhost' || host === '127.0.0.1' || host === '::1';
-    if (!isLocalPreview) return;
 
-    const hideLocalBusuanzi = () => {
-      document.querySelectorAll('.busuanzi-count, #busuanzi_container_page_pv').forEach(item => {
-        item.style.display = 'none';
-      });
-    };
 
-    hideLocalBusuanzi();
-    document.addEventListener('DOMContentLoaded', hideLocalBusuanzi);
-  })();
-</script>
+    <button class="back-to-top icon-button" type="button" title="返回顶部" aria-label="返回顶部">
+      <span aria-hidden="true">↑</span>
+    </button>
 
-</body>
+    <dialog class="image-viewer" aria-label="图片预览">
+      <button class="image-viewer-close icon-button" type="button" title="关闭图片" aria-label="关闭图片">×</button>
+      <img alt="">
+    </dialog>
+
+    
+<script src="/js/theme.js"></script>
+
+  </body>
 </html>
