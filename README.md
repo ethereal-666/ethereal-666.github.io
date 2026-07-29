@@ -54,8 +54,8 @@ blog/
 
 | 修改内容 | 文件 |
 | --- | --- |
-| 首页标题、首页各区域文字 | `themes/ethereal/layout/index.ejs` |
-| 首页联系方式、导航、评论仓库 | `themes/ethereal/_config.yml` |
+| 首页结构与各区域固定文字 | `themes/ethereal/layout/index.ejs` |
+| 首页轮播格言、联系方式、导航和评论仓库 | `themes/ethereal/_config.yml` |
 | 友链名称、简介、网址和头像 | `themes/ethereal/_config.yml` 的 `friends` 列表 |
 | 顶部导航结构 | `themes/ethereal/layout/_partial/header.ejs` |
 | 页脚文字 | `themes/ethereal/layout/_partial/footer.ejs` |

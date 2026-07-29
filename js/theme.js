@@ -110,6 +110,31 @@
     revealElements.forEach(element => revealObserver.observe(element));
   }
 
+  const quoteRotator = document.querySelector('[data-quote-rotator]');
+  const quoteData = document.querySelector('#home-quotes');
+  if (quoteRotator && quoteData && !prefersReducedMotion) {
+    try {
+      const quotes = JSON.parse(quoteData.textContent);
+      const quoteText = quoteRotator.querySelector('.quote-text');
+      const quoteAuthor = quoteRotator.querySelector('.quote-author span');
+      let quoteIndex = 0;
+
+      if (quotes.length > 1 && quoteText && quoteAuthor) {
+        window.setInterval(() => {
+          quoteRotator.classList.add('is-changing');
+          window.setTimeout(() => {
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+            quoteText.textContent = quotes[quoteIndex].text;
+            quoteAuthor.textContent = quotes[quoteIndex].author;
+            quoteRotator.classList.remove('is-changing');
+          }, 360);
+        }, 6200);
+      }
+    } catch {
+      // Keep the server-rendered first quote when configuration is invalid.
+    }
+  }
+
   document.querySelectorAll('.friend-avatar img').forEach(image => {
     const showFallback = () => {
       image.closest('.friend-avatar')?.classList.add('is-fallback');

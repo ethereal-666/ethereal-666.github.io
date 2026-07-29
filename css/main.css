@@ -207,13 +207,6 @@ button:focus-visible {
   white-space: nowrap;
 }
 
-.brand-copy small {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-}
-
 .site-navigation {
   display: flex;
   align-items: center;
@@ -315,10 +308,6 @@ html[data-theme='dark'] .theme-icon-dark {
   line-height: 1.25;
 }
 
-.compact-heading h2 {
-  font-size: 25px;
-}
-
 .text-link {
   color: var(--accent-strong);
   font-size: 14px;
@@ -345,16 +334,57 @@ html[data-theme='dark'] .theme-icon-dark {
   border-bottom: 1px solid var(--line);
 }
 
-.intro-copy h1 {
+.intro-copy {
+  min-width: 0;
+}
+
+.intro-quote {
+  display: flex;
+  height: 190px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro-quote h1 {
   max-width: 780px;
   margin: 0;
   font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
   font-size: 50px;
   line-height: 1.25;
+  transition: opacity 360ms ease, transform 360ms ease, filter 360ms ease;
 }
 
-.intro-copy h1 span {
+.intro-quote h1 span {
   color: var(--accent-strong);
+}
+
+.quote-author {
+  display: flex;
+  margin: 20px 0 0;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.quote-author::before {
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+}
+
+.intro-quote.is-changing h1 {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translateY(8px);
+}
+
+.intro-quote.is-changing .quote-author {
+  opacity: 0;
+  transform: translateY(5px);
 }
 
 .intro-description {
@@ -621,41 +651,63 @@ html[data-theme='dark'] .theme-icon-dark {
 }
 
 .browse-section {
-  padding: 54px 0 82px;
+  padding: 68px 0 82px;
 }
 
 .browse-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .browse-links a {
-  display: inline-flex;
-  min-height: 44px;
-  padding: 8px 10px 8px 15px;
-  align-items: center;
-  gap: 12px;
+  position: relative;
+  display: flex;
+  min-height: 148px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface-soft);
+  background: var(--surface);
   color: var(--text-soft);
-  font-size: 14px;
-  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+  box-shadow: var(--shadow);
+  transition: border-color 200ms ease, box-shadow 200ms ease, color 180ms ease, transform 200ms ease;
+}
+
+.browse-links a::after {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  color: var(--accent);
+  content: "↗";
+  font-size: 17px;
+  transition: transform 180ms ease;
+}
+
+.browse-links a > span {
+  max-width: calc(100% - 30px);
+  color: var(--text);
+  font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .browse-links a:hover {
   border-color: var(--accent);
-  background: var(--accent-soft);
   color: var(--accent-strong);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.browse-links a:hover::after {
+  transform: translate(2px, -2px);
 }
 
 .browse-links small {
-  padding: 1px 7px;
-  border-radius: 999px;
-  background: var(--surface-raised);
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 /* Taxonomy */
@@ -1785,10 +1837,6 @@ html[data-theme='dark'] .highlight .name {
     min-height: 68px;
   }
 
-  .brand-copy small {
-    display: none;
-  }
-
   .menu-toggle {
     display: inline-flex;
     flex-direction: column;
@@ -1861,8 +1909,16 @@ html[data-theme='dark'] .highlight .name {
     gap: 34px;
   }
 
-  .intro-copy h1 {
+  .intro-quote {
+    height: 230px;
+  }
+
+  .intro-quote h1 {
     font-size: 38px;
+  }
+
+  .browse-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .intro-description {
@@ -1993,7 +2049,11 @@ html[data-theme='dark'] .highlight .name {
 }
 
 @media (max-width: 430px) {
-  .intro-copy h1 {
+  .intro-quote {
+    height: 250px;
+  }
+
+  .intro-quote h1 {
     font-size: 33px;
   }
 
