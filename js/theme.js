@@ -112,20 +112,68 @@
 
   const quoteRotator = document.querySelector('[data-quote-rotator]');
   const quoteData = document.querySelector('#home-quotes');
-  if (quoteRotator && quoteData && !prefersReducedMotion) {
+  if (quoteRotator && quoteData) {
     try {
       const quotes = JSON.parse(quoteData.textContent);
       const quoteText = quoteRotator.querySelector('.quote-text');
       const quoteAuthor = quoteRotator.querySelector('.quote-author span');
-      let quoteIndex = 0;
 
       if (quotes.length > 1 && quoteText && quoteAuthor) {
+        const storageKey = 'ethereal-last-quote';
+        let lastQuote = quoteText.textContent;
+        let quoteQueue = [];
+
+        try {
+          lastQuote = localStorage.getItem(storageKey) || lastQuote;
+        } catch {
+          // Storage can be unavailable in strict privacy modes.
+        }
+
+        const shuffle = items => {
+          const result = [...items];
+          for (let index = result.length - 1; index > 0; index -= 1) {
+            const swapIndex = Math.floor(Math.random() * (index + 1));
+            [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+          }
+          return result;
+        };
+
+        const refillQueue = () => {
+          quoteQueue = shuffle(quotes);
+          if (quoteQueue.length > 1 && quoteQueue[0].text === lastQuote) {
+            [quoteQueue[0], quoteQueue[1]] = [quoteQueue[1], quoteQueue[0]];
+          }
+        };
+
+        const takeQuote = () => {
+          if (!quoteQueue.length) refillQueue();
+          const nextQuote = quoteQueue.shift();
+          lastQuote = nextQuote.text;
+          return nextQuote;
+        };
+
+        const renderQuote = quote => {
+          quoteText.textContent = quote.text;
+          quoteAuthor.textContent = quote.author;
+          try {
+            localStorage.setItem(storageKey, quote.text);
+          } catch {
+            // Rotation remains functional without storage.
+          }
+        };
+
+        renderQuote(takeQuote());
+
         window.setInterval(() => {
+          const nextQuote = takeQuote();
+          if (prefersReducedMotion) {
+            renderQuote(nextQuote);
+            return;
+          }
+
           quoteRotator.classList.add('is-changing');
           window.setTimeout(() => {
-            quoteIndex = (quoteIndex + 1) % quotes.length;
-            quoteText.textContent = quotes[quoteIndex].text;
-            quoteAuthor.textContent = quotes[quoteIndex].author;
+            renderQuote(nextQuote);
             quoteRotator.classList.remove('is-changing');
           }, 360);
         }, 6200);
