@@ -754,6 +754,12 @@ html[data-theme='dark'] .theme-icon-dark {
   transform: translateY(-4px);
 }
 
+.friend-card:last-child:nth-child(odd) {
+  width: calc(50% - 9px);
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
 .friend-card:hover::before {
   opacity: 1;
   transform: scaleX(1);
@@ -1956,7 +1962,9 @@ html[data-theme='dark'] .highlight .name {
   }
 
   .friend-card {
+    width: 100%;
     min-height: 164px;
+    grid-column: auto;
   }
 
   .page-heading {
