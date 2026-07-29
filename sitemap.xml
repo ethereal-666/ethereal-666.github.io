@@ -20,6 +20,15 @@
   </url>
   
   <url>
+    <loc>https://ethereal-666.github.io/about/index.html</loc>
+    
+    <lastmod>2026-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ethereal-666.github.io/categories/index.html</loc>
     
     <lastmod>2026-07-15</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>https://ethereal-666.github.io/tags/index.html</loc>
-    
-    <lastmod>2026-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ethereal-666.github.io/about/index.html</loc>
     
     <lastmod>2026-07-15</lastmod>
     
@@ -74,13 +74,6 @@
 
   
   <url>
-    <loc>https://ethereal-666.github.io/tags/Pwn/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ethereal-666.github.io/tags/H-NCTF2026/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -108,6 +101,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://ethereal-666.github.io/tags/Pwn/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -125,14 +125,14 @@
   </url>
   
   <url>
-    <loc>https://ethereal-666.github.io/categories/CTF/Pwn/</loc>
+    <loc>https://ethereal-666.github.io/categories/CTF/Reverse/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ethereal-666.github.io/categories/CTF/Reverse/</loc>
+    <loc>https://ethereal-666.github.io/categories/CTF/Pwn/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

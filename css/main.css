@@ -358,6 +358,14 @@ html[data-theme='dark'] .theme-icon-dark {
   color: var(--accent-strong);
 }
 
+.intro-quote.is-medium-quote h1 {
+  font-size: 39px;
+}
+
+.intro-quote.is-long-quote h1 {
+  font-size: 30px;
+}
+
 .quote-author {
   display: flex;
   margin: 20px 0 0;
@@ -524,17 +532,9 @@ html[data-theme='dark'] .theme-icon-dark {
   display: grid;
   min-height: 250px;
   padding: 42px;
-  grid-template-columns: 78px minmax(0, 1fr) 44px;
+  grid-template-columns: minmax(0, 1fr) 44px;
   align-items: start;
   gap: 28px;
-}
-
-.featured-number {
-  color: var(--line-strong);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 46px;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .featured-meta {
@@ -763,16 +763,6 @@ html[data-theme='dark'] .theme-icon-dark {
 .friend-card:hover::before {
   opacity: 1;
   transform: scaleX(1);
-}
-
-.friend-sequence {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  color: var(--faint);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 11px;
-  font-weight: 700;
 }
 
 .friend-avatar {
@@ -1923,6 +1913,14 @@ html[data-theme='dark'] .highlight .name {
     font-size: 38px;
   }
 
+  .intro-quote.is-medium-quote h1 {
+    font-size: 31px;
+  }
+
+  .intro-quote.is-long-quote h1 {
+    font-size: 25px;
+  }
+
   .browse-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1944,10 +1942,6 @@ html[data-theme='dark'] .highlight .name {
     padding: 28px;
     grid-template-columns: 1fr 36px;
     gap: 16px;
-  }
-
-  .featured-number {
-    display: none;
   }
 
   .featured-content h2 {
@@ -2063,6 +2057,14 @@ html[data-theme='dark'] .highlight .name {
 
   .intro-quote h1 {
     font-size: 33px;
+  }
+
+  .intro-quote.is-medium-quote h1 {
+    font-size: 29px;
+  }
+
+  .intro-quote.is-long-quote h1 {
+    font-size: 24px;
   }
 
   .section-heading {

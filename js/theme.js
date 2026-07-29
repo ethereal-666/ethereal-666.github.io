@@ -155,6 +155,8 @@
         const renderQuote = quote => {
           quoteText.textContent = quote.text;
           quoteAuthor.textContent = quote.author;
+          quoteRotator.classList.toggle('is-medium-quote', quote.text.length > 40 && quote.text.length <= 95);
+          quoteRotator.classList.toggle('is-long-quote', quote.text.length > 95);
           try {
             localStorage.setItem(storageKey, quote.text);
           } catch {
