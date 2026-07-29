@@ -1961,10 +1961,12 @@ html[data-theme='dark'] .highlight .name {
     grid-template-columns: 1fr;
   }
 
-  .friend-card {
+  .friend-card,
+  .friend-card:last-child:nth-child(odd) {
     width: 100%;
     min-height: 164px;
     grid-column: auto;
+    justify-self: stretch;
   }
 
   .page-heading {
