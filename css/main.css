@@ -813,6 +813,12 @@ html[data-theme='dark'] .theme-icon-dark {
   line-height: 1.35;
 }
 
+.friend-zero {
+  font-family: "Cascadia Mono", "Cascadia Code", Consolas, monospace;
+  font-feature-settings: "zero" 1;
+  font-variant-numeric: slashed-zero;
+}
+
 .friend-copy > span {
   min-height: 44px;
   margin-top: 8px;
