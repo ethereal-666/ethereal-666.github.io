@@ -1,0 +1,63 @@
+<%
+  const tocHtml = toc(page.content, { list_number: false, min_depth: 2, max_depth: 4 });
+  const hasToc = tocHtml && tocHtml.trim();
+%>
+<div class="post-page page-container">
+  <div class="post-layout<%= hasToc ? ' has-toc' : '' %>">
+    <article class="article-sheet reveal" itemscope itemtype="https://schema.org/BlogPosting">
+      <header class="article-header">
+        <div class="article-kicker">
+          <% if (page.categories && page.categories.length) { %>
+            <a href="<%- url_for(page.categories.last().path) %>"><%= page.categories.last().name %></a>
+          <% } else { %>
+            <span>NOTE</span>
+          <% } %>
+        </div>
+        <h1 itemprop="headline"><%= page.title %></h1>
+        <% if (page.description) { %><p class="article-description"><%= page.description %></p><% } %>
+        <div class="article-meta">
+          <time datetime="<%= date_xml(page.date) %>" itemprop="datePublished"><%= date(page.date, 'YYYY年MM月DD日') %></time>
+          <span aria-hidden="true">/</span>
+          <span id="busuanzi_container_page_pv" class="page-views"><span id="busuanzi_value_page_pv">-</span> 次阅读</span>
+        </div>
+      </header>
+
+      <div class="article-content" itemprop="articleBody">
+        <%- page.content %>
+      </div>
+
+      <% if (page.tags && page.tags.length) { %>
+        <footer class="article-tags" aria-label="文章标签">
+          <span class="article-tags-label">标签</span>
+          <% page.tags.each(function(tag) { %>
+            <a href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+          <% }); %>
+        </footer>
+      <% } %>
+
+      <% if (page.prev || page.next) { %>
+        <nav class="post-navigation" aria-label="相邻文章">
+          <% if (page.prev) { %>
+            <a href="<%- url_for(page.prev.path) %>"><small>上一篇</small><span><%= page.prev.title %></span></a>
+          <% } else { %><span></span><% } %>
+          <% if (page.next) { %>
+            <a href="<%- url_for(page.next.path) %>" class="post-nav-next"><small>下一篇</small><span><%= page.next.title %></span></a>
+          <% } %>
+        </nav>
+      <% } %>
+
+      <%- partial('_partial/comments') %>
+    </article>
+
+    <% if (hasToc) { %>
+      <aside class="toc-rail" aria-label="文章目录">
+        <div class="toc-inner">
+          <p class="toc-label">文章目录</p>
+          <%- tocHtml %>
+          <div class="toc-progress"><span></span></div>
+        </div>
+      </aside>
+    <% } %>
+  </div>
+</div>
+

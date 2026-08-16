@@ -1,0 +1,154 @@
+github: https://github.com/ethereal-666
+asset_version: 20260729.6
+
+quotes:
+  - text: "Simplicity is prerequisite for reliability."
+    author: Edsger W. Dijkstra
+  - text: "Talk is cheap. Show me the code."
+    author: Linus Torvalds
+  - text: "Any damn fool can write code that a computer can understand, the trick is to write code that humans can understand."
+    author: Martin Fowler
+  - text: "Premature optimization is the root of all evil."
+    author: Donald E. Knuth
+  - text: "The best way to predict the future is to invent it."
+    author: Alan Kay
+  - text: "Program testing can be used very effectively to show the presence of bugs but never to show their absence."
+    author: Edsger W. Dijkstra
+  - text: "Make it work, make it right, make it fast."
+    author: Kent Beck
+  - text: "Programs must be written for people to read, and only incidentally for machines to execute."
+    author: Harold Abelson & Gerald Jay Sussman
+  - text: "What I cannot create, I do not understand."
+    author: Richard P. Feynman
+  - text: "The only way to go fast, is to go well."
+    author: Robert C. Martin
+  - text: "Controlling complexity is the essence of computer programming."
+    author: Brian W. Kernighan
+  - text: "A language that doesn't affect the way you think about programming is not worth knowing."
+    author: Alan J. Perlis
+  - text: "Before software can be reusable it first has to be usable."
+    author: Ralph Johnson
+  - text: "The function of good software is to make the complex appear to be simple."
+    author: Grady Booch
+  - text: "Good design adds value faster than it adds cost."
+    author: Thomas C. Gale
+  - text: "Debugging is twice as hard as writing the code in the first place."
+    author: Brian W. Kernighan
+  - text: "When in doubt, use brute force."
+    author: Ken Thompson
+  - text: "The art of programming is the art of organizing complexity, of mastering multitude and avoiding its bastard chaos as effectively as possible."
+    author: Edsger W. Dijkstra
+  - text: "We can only see a short distance ahead, but we can see plenty there that needs to be done."
+    author: Alan Turing
+  - text: "There are only two kinds of languages: the ones people complain about and the ones nobody uses."
+    author: Bjarne Stroustrup
+  - text: "Free software is a matter of liberty, not price."
+    author: Richard Stallman
+  - text: "Security is a process, not a product."
+    author: Bruce Schneier
+  - text: "Working software over comprehensive documentation."
+    author: Manifesto for Agile Software Development
+  - text: "Beautiful is better than ugly."
+    author: Tim Peters
+  - text: "Explicit is better than implicit."
+    author: Tim Peters
+  - text: "Simple is better than complex."
+    author: Tim Peters
+  - text: "Readability counts."
+    author: Tim Peters
+  - text: "Errors should never pass silently."
+    author: Tim Peters
+  - text: "In the face of ambiguity, refuse the temptation to guess."
+    author: Tim Peters
+  - text: "If the implementation is hard to explain, it's a bad idea."
+    author: Tim Peters
+  - text: "If the implementation is easy to explain, it may be a good idea."
+    author: Tim Peters
+  - text: "Now is better than never."
+    author: Tim Peters
+  - text: "Although practicality beats purity."
+    author: Tim Peters
+  - text: "Clear is better than clever."
+    author: Rob Pike
+  - text: "A little copying is better than a little dependency."
+    author: Rob Pike
+  - text: "The bigger the interface, the weaker the abstraction."
+    author: Rob Pike
+  - text: "Don't communicate by sharing memory, share memory by communicating."
+    author: Rob Pike
+  - text: "Make the zero value useful."
+    author: Rob Pike
+  - text: "Errors are values."
+    author: Rob Pike
+  - text: "Don't just check errors, handle them gracefully."
+    author: Rob Pike
+  - text: "Design the architecture, name the components, document the details."
+    author: Rob Pike
+  - text: "The price of reliability is the pursuit of the utmost simplicity."
+    author: C. A. R. Hoare
+  - text: "The bearing of a child takes nine months, no matter how many women are assigned."
+    author: Fred Brooks
+  - text: "A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable."
+    author: Leslie Lamport
+  - text: "All problems in computer science can be solved by another level of indirection."
+    author: David Wheeler
+  - text: "There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies."
+    author: C. A. R. Hoare
+  - text: "The purpose of computing is insight, not numbers."
+    author: Richard Hamming
+  - text: "Plan to throw one away; you will, anyhow."
+    author: Fred Brooks
+  - text: "Beware of bugs in the above code; I have only proved it correct, not tried it."
+    author: Donald E. Knuth
+  - text: "Given enough eyeballs, all bugs are shallow."
+    author: Eric S. Raymond
+  - text: "Write programs that do one thing and do it well."
+    author: Doug McIlroy
+  - text: "Keep the design as simple and small as possible."
+    author: Jerome H. Saltzer & Michael D. Schroeder
+
+contacts:
+  - label: GitHub
+    value: ethereal-666
+    url: https://github.com/ethereal-666
+  - label: QQ 邮箱
+    value: 2366956317@qq.com
+  - label: 学校邮箱
+    value: 2024311311@stu.hit.edu.cn
+
+menu:
+  首页: /
+  分类: /categories/
+  归档: /archives/
+  友链: /friends/
+  关于: /about/
+
+friends:
+  - name: yaaay
+    url: https://yaaay77.github.io/
+    avatar: /images/friends/yaaay.png
+    description: 记录学习、生活与技术
+    domain: yaaay77.github.io
+  - name: Lain0x
+    url: http://lain0x.cn/
+    avatar: /images/friends/lain0x.jpg
+    description: Welcome to my little site
+    domain: lain0x.cn
+    distinguish_zero: true
+  - name: ForJ
+    url: https://forj121.github.io/
+    avatar: /images/friends/forj.png
+    description: 从春季夏日秋风陪我过到冬天
+    domain: forj121.github.io
+
+verification:
+  google: 5Q_q112kSi6haQ1jSGCqwgH0jaKOULEEsz6ynnPF7sU
+  bing: 22E20FE3C132712661A6430A6991C5C0
+
+utterances:
+  enable: true
+  repo: ethereal-666/ethereal-666.github.io
+  issue_term: pathname
+  label: comments
+
+busuanzi: true

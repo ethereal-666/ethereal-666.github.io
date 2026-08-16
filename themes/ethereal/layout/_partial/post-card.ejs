@@ -1,0 +1,19 @@
+<%
+  const text = strip_html(post.excerpt || post.content || '').replace(/\s+/g, ' ').trim();
+  const summary = text.length > 116 ? `${text.slice(0, 116)}…` : text;
+%>
+<article class="post-card reveal">
+  <a class="post-card-link" href="<%- url_for(post.path) %>" aria-label="阅读 <%= post.title %>">
+    <div class="post-card-topline">
+      <time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY.MM.DD') %></time>
+      <span class="post-arrow" aria-hidden="true">↗</span>
+    </div>
+    <h3><%= post.title %></h3>
+    <% if (summary) { %><p><%- summary %></p><% } %>
+    <div class="post-card-taxonomy">
+      <% post.categories.each(function(category) { %>
+        <span><%= category.name %></span>
+      <% }); %>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="<%= config.language || 'zh-CN' %>">
+  <%- partial('_partial/head') %>
+  <body class="page-kind-<%= page.layout || 'page' %>" data-busuanzi="<%= theme.busuanzi ? 'true' : 'false' %>">
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+    <%- partial('_partial/header') %>
+
+    <main id="main-content" class="site-main">
+      <%- body %>
+    </main>
+
+    <%- partial('_partial/footer') %>
+
+    <button class="back-to-top icon-button" type="button" title="返回顶部" aria-label="返回顶部">
+      <span aria-hidden="true">↑</span>
+    </button>
+
+    <dialog class="image-viewer" aria-label="图片预览">
+      <button class="image-viewer-close icon-button" type="button" title="关闭图片" aria-label="关闭图片">×</button>
+      <img alt="">
+    </dialog>
+
+    <script src="<%- url_for('/js/theme.js') %>?v=<%= theme.asset_version %>"></script>
+  </body>
+</html>

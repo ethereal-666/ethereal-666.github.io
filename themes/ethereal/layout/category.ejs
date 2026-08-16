@@ -1,0 +1,14 @@
+<div class="listing-page page-container narrow-container">
+  <header class="page-heading reveal">
+    <p class="eyebrow">CATEGORY</p>
+    <h1><%= page.category %></h1>
+    <p>该分类下共有 <%= page.total || page.posts.length %> 篇记录。</p>
+  </header>
+  <div class="listing-grid">
+    <% page.posts.each(function(post) { %>
+      <%- partial('_partial/post-card', { post: post }) %>
+    <% }); %>
+  </div>
+  <%- partial('_partial/paginator') %>
+</div>
+

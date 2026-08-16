@@ -1,0 +1,104 @@
+<%
+  const posts = page.posts.toArray();
+  const featured = posts[0];
+  const remaining = posts.slice(1);
+  const totalPosts = site.posts.length;
+  const totalCategories = site.categories.length;
+  const quotes = Array.isArray(theme.quotes) && theme.quotes.length ? theme.quotes : [
+    { text: '简单是可靠的先决条件。', author: 'Edsger W. Dijkstra' }
+  ];
+  const primaryQuote = quotes[0];
+%>
+<div class="home-page page-container">
+  <section class="home-intro reveal">
+    <div class="intro-copy">
+      <div class="intro-quote" data-quote-rotator>
+        <h1><span class="quote-text"><%= primaryQuote.text %></span></h1>
+        <p class="quote-author"><span><%= primaryQuote.author %></span></p>
+      </div>
+      <script id="home-quotes" type="application/json"><%- JSON.stringify(quotes).replace(/</g, '\\u003c') %></script>
+      <p class="intro-description"><%= config.description %></p>
+      <div class="intro-stats" aria-label="博客统计">
+        <span><strong><%= totalPosts %></strong> 篇记录</span>
+        <span><strong><%= totalCategories %></strong> 个分类</span>
+      </div>
+    </div>
+    <aside class="intro-profile" aria-label="个人信息与联系方式">
+      <div class="profile-identity">
+        <img src="<%- url_for('/images/avatar.png') %>" alt="<%= config.author %> 的头像">
+        <div>
+          <strong><%= config.author %></strong>
+          <span>Learning in public</span>
+        </div>
+      </div>
+      <div class="intro-contact">
+        <% theme.contacts.forEach(function(contact) { %>
+          <% if (contact.url) { %>
+            <a class="contact-row" href="<%= contact.url %>" target="_blank" rel="noopener">
+              <small><%= contact.label %></small>
+              <span><%= contact.value %></span>
+              <b aria-hidden="true">↗</b>
+            </a>
+          <% } else { %>
+            <div class="contact-row">
+              <small><%= contact.label %></small>
+              <span><%= contact.value %></span>
+            </div>
+          <% } %>
+        <% }); %>
+      </div>
+    </aside>
+  </section>
+
+  <% if (featured) { %>
+    <section class="latest-section">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">LATEST NOTE</p>
+          <h2>最新文章</h2>
+        </div>
+        <a class="text-link" href="<%- url_for('/archives/') %>">查看全部 <span aria-hidden="true">→</span></a>
+      </div>
+
+      <article class="featured-post reveal">
+        <a href="<%- url_for(featured.path) %>" class="featured-post-link">
+          <div class="featured-content">
+            <div class="featured-meta">
+              <time datetime="<%= date_xml(featured.date) %>"><%= date(featured.date, 'YYYY年MM月DD日') %></time>
+              <% featured.categories.each(function(category) { %><span><%= category.name %></span><% }); %>
+            </div>
+            <h2><%= featured.title %></h2>
+            <p><%- strip_html(featured.excerpt || featured.content).replace(/\s+/g, ' ').trim().slice(0, 150) %><%= strip_html(featured.excerpt || featured.content).length > 150 ? '…' : '' %></p>
+          </div>
+          <span class="featured-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+
+      <% if (remaining.length) { %>
+        <div class="post-grid">
+          <% remaining.forEach(function(post) { %>
+            <%- partial('_partial/post-card', { post: post }) %>
+          <% }); %>
+        </div>
+      <% } %>
+      <%- partial('_partial/paginator') %>
+    </section>
+  <% } %>
+
+  <section class="browse-section reveal">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">BROWSE</p>
+        <h2>按主题浏览</h2>
+      </div>
+    </div>
+    <div class="browse-links">
+      <% site.categories.sort('name').each(function(category) { %>
+        <a href="<%- url_for(category.path) %>">
+          <span><%= category.name %></span>
+          <small><%= category.length %> 篇</small>
+        </a>
+      <% }); %>
+    </div>
+  </section>
+</div>

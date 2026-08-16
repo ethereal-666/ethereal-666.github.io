@@ -1,0 +1,26 @@
+# Hexo 生成的网站
+public/
+
+# Hexo 本地数据库/缓存
+db.json
+
+# npm 依赖，可以通过 package.json / package-lock.json 重新安装
+node_modules/
+
+# hexo-deployer-git 临时部署仓库
+.deploy_git/
+
+# 日志
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 系统垃圾文件
+.DS_Store
+Thumbs.db
+
+# 编辑器临时文件
+*.swp
+*.swo
+*~

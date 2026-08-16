@@ -1,0 +1,70 @@
+<% if (page.type === 'friends') { %>
+  <div class="friends-page page-container narrow-container">
+    <header class="page-heading reveal">
+      <p class="eyebrow">CONNECTIONS</p>
+      <h1>友链</h1>
+      <p>在不同的文字与思考之间，保持连接。</p>
+    </header>
+    <div class="friends-grid">
+      <% (theme.friends || []).forEach(function(friend) { %>
+        <a class="friend-card reveal" href="<%= friend.url %>" target="_blank" rel="noopener noreferrer">
+          <span class="friend-avatar">
+            <span class="friend-avatar-fallback" aria-hidden="true"><%= friend.name.slice(0, 1).toUpperCase() %></span>
+            <img src="<%- url_for(friend.avatar) %>" alt="<%= friend.name %> 的头像" loading="lazy">
+          </span>
+          <span class="friend-copy">
+            <strong><% Array.from(friend.name).forEach(function(character) { %><% if (friend.distinguish_zero && character === '0') { %><span class="friend-zero">0</span><% } else { %><%= character %><% } %><% }); %></strong>
+            <span><%= friend.description %></span>
+            <small><%= friend.domain %></small>
+          </span>
+          <span class="friend-arrow" aria-hidden="true">↗</span>
+        </a>
+      <% }); %>
+    </div>
+    <p class="friends-note reveal">每一个被认真维护的角落，都有值得停留的片刻。</p>
+  </div>
+<% } else if (page.type === 'categories') { %>
+  <div class="taxonomy-page page-container narrow-container">
+    <header class="page-heading reveal">
+      <p class="eyebrow">CATEGORIES</p>
+      <h1>分类</h1>
+      <p>按主题整理，共 <%= site.categories.length %> 个分类。</p>
+    </header>
+    <div class="category-grid">
+      <% site.categories.sort('name').each(function(category, index) { %>
+        <a class="category-card reveal" href="<%- url_for(category.path) %>">
+          <span class="category-index" aria-hidden="true"><%= String(index + 1).padStart(2, '0') %></span>
+          <div>
+            <h2><%= category.name %></h2>
+            <p><%= category.length %> 篇记录</p>
+          </div>
+          <span class="category-arrow" aria-hidden="true">↗</span>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+<% } else if (page.type === 'tags') { %>
+  <div class="taxonomy-page page-container narrow-container">
+    <header class="page-heading reveal">
+      <p class="eyebrow">TAGS</p>
+      <h1>标签</h1>
+      <p>从关键词进入相关记录。</p>
+    </header>
+    <div class="tag-cloud reveal">
+      <% site.tags.sort('name').each(function(tag) { %>
+        <a href="<%- url_for(tag.path) %>">
+          <span><%= tag.name %></span>
+          <small><%= tag.length %></small>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+<% } else { %>
+  <article class="standalone-page page-container reading-container reveal">
+    <header class="page-heading standalone-heading">
+      <p class="eyebrow">PAGE</p>
+      <h1><%= page.title %></h1>
+    </header>
+    <div class="article-content"><%- page.content %></div>
+  </article>
+<% } %>

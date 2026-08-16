@@ -1,0 +1,15 @@
+<% if (theme.utterances.enable && page.comments !== false) { %>
+  <section class="comments-section" data-comments>
+    <div class="section-heading compact-heading">
+      <div>
+        <p class="eyebrow">DISCUSSION</p>
+        <h2>评论</h2>
+      </div>
+    </div>
+    <div class="utterances-root"
+      data-repo="<%= theme.utterances.repo %>"
+      data-issue-term="<%= theme.utterances.issue_term %>"
+      data-label="<%= theme.utterances.label %>"></div>
+  </section>
+<% } %>
+

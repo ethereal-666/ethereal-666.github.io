@@ -1,0 +1,29 @@
+<%
+  let currentYear;
+%>
+<div class="archive-page page-container narrow-container">
+  <header class="page-heading reveal">
+    <p class="eyebrow">ARCHIVE</p>
+    <h1>归档</h1>
+    <p>共整理 <%= site.posts.length %> 篇记录，按时间由近到远排列。</p>
+  </header>
+
+  <div class="archive-groups">
+    <% page.posts.each(function(post) { const year = post.date.year(); %>
+      <% if (currentYear !== year) { %>
+        <% if (currentYear !== undefined) { %></div></section><% } %>
+        <% currentYear = year; %>
+        <section class="archive-group reveal">
+          <header class="archive-year"><h2><%= year %></h2><span><%= site.posts.toArray().filter(item => item.date.year() === year).length %> 篇</span></header>
+          <div class="archive-list">
+      <% } %>
+            <a class="archive-item" href="<%- url_for(post.path) %>">
+              <time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'MM月DD日') %></time>
+              <span class="archive-title"><%= post.title %></span>
+              <span class="archive-arrow" aria-hidden="true">→</span>
+            </a>
+    <% }); %>
+    <% if (currentYear !== undefined) { %></div></section><% } %>
+  </div>
+  <%- partial('_partial/paginator') %>
+</div>

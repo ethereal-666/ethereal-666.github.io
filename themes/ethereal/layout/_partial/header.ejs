@@ -1,0 +1,31 @@
+<%
+  const currentPath = page.path || '';
+  const activePath = (path) => {
+    if (path === '/') return is_home();
+    return currentPath.startsWith(path.replace(/^\//, ''));
+  };
+%>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="<%- url_for('/') %>" aria-label="返回首页">
+      <span class="brand-monogram" aria-hidden="true">E</span>
+      <span class="brand-copy">
+        <strong><%= config.title %></strong>
+      </span>
+    </a>
+
+    <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-navigation" title="打开导航" aria-label="打开导航">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-navigation" class="site-navigation" aria-label="主导航">
+      <% Object.keys(theme.menu).forEach(function(label) { const path = theme.menu[label]; %>
+        <a class="nav-link<%= activePath(path) ? ' is-active' : '' %>" href="<%- url_for(path) %>"><%= label %></a>
+      <% }); %>
+      <button class="theme-toggle icon-button" type="button" title="切换颜色模式" aria-label="切换颜色模式">
+        <span class="theme-icon theme-icon-light" aria-hidden="true">☼</span>
+        <span class="theme-icon theme-icon-dark" aria-hidden="true">☾</span>
+      </button>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,32 @@
+<%
+  let pageTitle = page.title;
+  if (is_archive()) pageTitle = '归档';
+  if (is_category()) pageTitle = `分类：${page.category}`;
+  if (is_tag()) pageTitle = `标签：${page.tag}`;
+  const title = pageTitle ? `${pageTitle} | ${config.title}` : config.title;
+  const description = strip_html(page.description || page.excerpt || config.description || config.subtitle || '').replace(/\s+/g, ' ').trim();
+  const canonical = page.permalink || full_url_for(page.path || '');
+%>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <meta name="author" content="<%= config.author %>">
+  <meta name="google-site-verification" content="<%= theme.verification.google %>">
+  <meta name="msvalidate.01" content="<%= theme.verification.bing %>">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#efedf5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#19171e">
+  <link rel="canonical" href="<%= canonical %>">
+  <link rel="icon" href="<%- url_for('/images/avatar.png') %>">
+  <%- open_graph({ title: title, description: description, url: canonical, type: is_post() ? 'article' : 'website' }) %>
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ethereal-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (systemDark ? 'dark' : 'light');
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="stylesheet" href="<%- url_for('/css/main.css') %>?v=<%= theme.asset_version %>">
+</head>
